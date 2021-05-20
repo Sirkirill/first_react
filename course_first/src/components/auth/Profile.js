@@ -57,6 +57,7 @@ class Profile extends Component {
         event.preventDefault();
 
         const json_state = JSON.stringify(this.state);
+        this.setState({validate_message: 'updated'});
         fetch(AuthUrls.USER_PROFILE, {
             method: 'put',
             headers: {
@@ -66,7 +67,6 @@ class Profile extends Component {
             body: json_state
         }).then(response => response.json().then(data => ({data: data, status: response.status})))
             .catch(err => console.log(err))
-        this.setState({validate_message: 'updated'});
     }
 
     handleChange(event) {

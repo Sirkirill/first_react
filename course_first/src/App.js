@@ -32,8 +32,8 @@ class App extends Component{
                     <Route path="/login"> <Login authChange={this.authChange} auth={this.state.auth}/></Route>
                     <Route path="/registration"> <Registration authChange={this.authChange} auth={this.state.auth}/></Route>
                 </Switch>
-                {!this.state.auth && <Redirect to="/login" push />}
-                Authorized - {this.state.auth.toString()}
+                {/*{!this.state.auth && <Redirect to="/login" push />}*/}
+                {/*    Authorized - {this.state.auth.toString()}*/}
             </Router>
         );
     }
