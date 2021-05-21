@@ -1,4 +1,4 @@
-const ROOT_URL = "https://api-collections.herokuapp.com/";
+import ROOT_URL from './constants'
 
 const AuthUrls = {
     LOGIN: `${ROOT_URL}rest-auth/login/`,

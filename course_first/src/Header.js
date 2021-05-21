@@ -23,7 +23,7 @@ class Header extends Component{
                 <div className="inner d-flex justify-content-between">
                     <h3 className="masthead-brand">Collections</h3>
                         <nav className="nav nav-masthead justify-content-center">
-                            <NavLink exact activeClassName='nav-link active' to='/' className="nav-link">Home</NavLink>
+                            <NavLink exact activeClassName='nav-link active' to='/teams' className="nav-link">Teams</NavLink>
                             {!this.props.auth ?
                                 <NavLink exact to='/login' className="nav-link" activeClassName="nav-link active">Login</NavLink>
                                 :
