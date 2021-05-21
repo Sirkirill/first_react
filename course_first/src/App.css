@@ -17,6 +17,16 @@
   z-index: 1000;
 }
 
+.right-corner{
+  top: 0;
+  right: 0;
+}
+
+.right-bottom-corner{
+  bottom: 0;
+  right: 0;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
