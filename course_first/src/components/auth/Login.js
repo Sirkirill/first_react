@@ -60,7 +60,7 @@ class Login extends Component{
                     <label htmlFor="inputPassword" className="sr-only">Password</label>
                     <input type="password" id="inputPassword" className="form-control" placeholder="Password"
                            required="" name="password" value={this.state.password} onChange={this.handleChange}/>
-                    {this.props.auth && <Redirect to="/" push />}
+                    {this.props.auth && <Redirect to="/teams" push />}
                     {this.state.validate_message && <div>{this.state.validate_message}</div>}
                     <button className="btn btn-lg btn-primary btn-block mt-3" type="submit">Sign In</button>
 
