@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import TeamsUrls from './../../constants/teams_urls';
-import {Redirect} from "react-router-dom";
+import {Redirect, Link} from "react-router-dom";
 
 class TeamAdd extends Component {
     constructor(props) {
@@ -56,7 +56,7 @@ class TeamAdd extends Component {
     render() {
 
         return (
-            <form className="form-horizontal col-6 position-absolute bg-light right-bottom-corner" role="form"
+            <form className="form-horizontal col-6 position-absolute zindex-absolute bg-light right-corner" role="form"
                   onSubmit={this.handleSubmit}>
                 <div className="form-group">
                     <label className="control-label">Name:</label>
@@ -240,7 +240,7 @@ class GroupCard extends Component {
         return (
             <div className="card">
                 <div className="card-header">
-                    <h5 className="card-title">{this.state.group['name']}</h5>
+                    <h5 className="card-title"><Link to={'/team/'+this.state.group['pk']}>{this.state.group['name']}</Link></h5>
                     <div type="button" className="btn btn-primary btn-lg position-absolute right-corner"
                          onClick={this.deleteGroup}>
                         X
@@ -514,14 +514,17 @@ class Teams extends Component {
 
 
                 {!this.props.auth && <Redirect to="/login" push/>}
-                <div className="form-group offset-8 col-4">
-                    <div type="button" className="btn btn-primary btn-lg" type="submit"
+                <div className="form-group">
+                    <div type="button" className="btn btn-primary btn-lg col-2" type="submit"
                          onClick={this.handleAddingTeam}>
                         {!this.state.add_team_button ? '+ Team' : 'X'}
                     </div>
+                    <div className="col-6 position-absolute zindex-absolute">
                     {this.state.add_team_button && <TeamAdd buttonToggle={this.buttonToggle} is_group={false}/>}
+                    </div>
                 </div>
                 <h1>Teams with related groups(subteams)</h1>
+
                 <hr/>
                 <this.createTeamView/>
             </div>
@@ -531,4 +534,4 @@ class Teams extends Component {
     }
 }
 
-export default Teams;
+export {Teams, GroupCard};

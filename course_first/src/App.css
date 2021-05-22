@@ -12,6 +12,9 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+.zindex-max{
+  z-index: 10000 !important;
+}
 
 .zindex-absolute{
   z-index: 1000;
