@@ -21,7 +21,7 @@ class Login extends Component{
         let status = res.status;
         let resp_json = res.data;
         if (status === 200){
-            localStorage.setItem('Authorization', 'Token ' + resp_json['key']);
+            localStorage.setItem('Authorization', 'Token ' + resp_json['token']);
             this.props.authChange(true);
             return true;
         }
@@ -53,18 +53,19 @@ class Login extends Component{
         return (
             <div className="text-center d-flex justify-content-center mt-5 pt-5">
                 <form className="form-signin col-3" onSubmit={this.handleSubmit}>
-                    <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
+                    <h1 className="h3 mb-3 font-weight-normal">Please, Log In</h1>
                         <label htmlFor="inputUsername" className="sr-only">Username</label>
                     <input type="text" id="inputUsername" className="form-control" placeholder="Username" required=""
                            autoFocus="" value={this.state.username} onChange={this.handleChange} name="username"/>
                     <label htmlFor="inputPassword" className="sr-only">Password</label>
+                    <br/>
                     <input type="password" id="inputPassword" className="form-control" placeholder="Password"
                            required="" name="password" value={this.state.password} onChange={this.handleChange}/>
                     {this.props.auth && <Redirect to="/teams" push />}
                     {this.state.validate_message && <div>{this.state.validate_message}</div>}
-                    <button className="btn btn-lg btn-primary btn-block mt-3" type="submit">Sign In</button>
+                    <button className="btn btn-lg btn-primary btn-block mt-3" type="submit">Log In</button>
 
-                    <p className="mt-5 mb-3 text-muted">© 2017-2019</p>
+                    <p className="mt-5 mb-3 text-muted">©Face In 2020</p>
                 </form>
             </div>
         );

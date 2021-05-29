@@ -28,12 +28,13 @@ class Header extends Component{
                                 <NavLink exact to='/login' className="nav-link" activeClassName="nav-link active">Login</NavLink>
                                 :
                                 <NavLink exact  to='/logout' className="nav-link" onClick={this.logout}>Logout</NavLink>
+
                             }
 
                             {!this.props.auth ?
-                                <NavLink exact className="nav-link" activeClassName="nav-link active" to='/registration'>Registration</NavLink>
+                                <NavLink exact className="nav-link" activeClassName="nav-link active" to='/change-password'>Change Password</NavLink>
                                 :
-                                <NavLink exact className="nav-link" activeClassName="nav-link active" to='/profile'>Profile</NavLink>
+                                <NavLink exact className="nav-link" activeClassName="nav-link active" to='/change-password'>Change Password</NavLink>
                             }
                         </nav>
                 </div>

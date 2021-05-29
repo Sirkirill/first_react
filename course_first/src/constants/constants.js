@@ -1,3 +1,3 @@
-const ROOT_URL = "https://api-collections.herokuapp.com/";
+const ROOT_URL = "https://facein-backend.herokuapp.com/";
 
 export default ROOT_URL;

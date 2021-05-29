@@ -32,7 +32,7 @@ class App extends Component{
                 <Switch>
                     <Route path="/profile"> <Profile authChange={this.authChange} auth={this.state.auth}/></Route>
                     <Route path="/login"> <Login authChange={this.authChange} auth={this.state.auth}/></Route>
-                    <Route path="/registration"> <Registration authChange={this.authChange} auth={this.state.auth}/></Route>
+                    <Route path="/change-password"> <Registration authChange={this.authChange} auth={this.state.auth}/></Route>
                     <Route exact path="/teams"> <Teams authChange={this.authChange} auth={this.state.auth}/></Route>
                     <Route exact path="/team/:id"
                            render={({match}) => (<Team authChange={this.authChange} auth={this.state.auth}  id={match.params.id}/>)}/>
