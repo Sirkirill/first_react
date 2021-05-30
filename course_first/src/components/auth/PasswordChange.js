@@ -1,8 +1,12 @@
 import React, {Component} from 'react';
 import AuthUrls from './../../constants/auth_urls';
 import {Redirect} from "react-router-dom";
+import LocalizedStrings from 'react-localization';
+import data from "../../localization.js";
 
-class Registration extends Component {
+
+let strings = new LocalizedStrings(data);
+class PasswordChange extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -12,6 +16,12 @@ class Registration extends Component {
             submit: false,
             validate_message: '',
         };
+        let lang = localStorage.getItem('lang');
+        if (lang === null){
+            lang = 'en'
+        }
+        strings.setLanguage(lang);
+
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -28,7 +38,7 @@ class Registration extends Component {
                 data => {
                     console.log(data)
                     let key = Object.keys(data)[0];
-                    this.setState({'validate_message': 'ERROR ' + status + ' ' + key + ': ' + data[key], 'submit': false});
+                    this.setState({'validate_message': strings.error + ' ' + key + ': ' + data[key], 'submit': false});
                 }
             );
 
@@ -44,7 +54,8 @@ class Registration extends Component {
             method: 'put',
             headers: {
                 'Accept': 'application/json', 'Content-type': 'application/json',
-                'Authorization': localStorage.getItem('Authorization')
+                'Authorization': localStorage.getItem('Authorization'),
+                'Accept-language': strings.getLanguage(),
             },
             body: json_state
         }).then(response=>this.process_response(response))
@@ -62,22 +73,22 @@ class Registration extends Component {
         return (
             <div className="text-center d-flex justify-content-center mt-5 pt-5">
                 <div className="container col-4">
-                    <h1>Change Password</h1>
+                    <h1>{strings.change_password}</h1>
                     <hr/>
                     <div className="personal-info">
                         <form className="form-horizontal" role="form" onSubmit={this.handleSubmit}>
                             <div className="form-group">
-                                <label className="col-lg-3 control-label">Old Password:</label>
+                                <label className="col-lg-3 control-label">{strings.old_password}:</label>
                                 <input className="form-control" onChange={this.handleChange} type="password"
                                        value={this.state.old_password} name="old_password"/>
                             </div>
                             <div className="form-group">
-                                <label className="col-lg-3 control-label">New Password:</label>
+                                <label className="col-lg-3 control-label">{strings.new_password}:</label>
                                 <input className="form-control" onChange={this.handleChange} type="password"
                                        value={this.state.new_password_1} name="new_password_1"/>
                             </div>
                             <div className="form-group">
-                                <label className="control-label">Repeat New Password:</label>
+                                <label className="control-label">{strings.repeat} {strings.new_password}:</label>
                                 <input className="form-control" onChange={this.handleChange} type="password"
                                        value={this.state.new_password_2} name="new_password_2"/>
                             </div>
@@ -85,7 +96,7 @@ class Registration extends Component {
                             {this.state.validate_message && <div>{this.state.validate_message}</div>}
                             {this.state.submit && <Redirect to="/" push />}
                             <div className="form-group mt-5">
-                                <button type="button" className="btn btn-primary btn-lg" type="submit">Change Password</button>
+                                <button type="button" className="btn btn-primary btn-lg" type="submit">{strings.change_password}</button>
                             </div>
                         </form>
                     </div>
@@ -96,4 +107,4 @@ class Registration extends Component {
     }
 }
 
-export default Registration;
+export default PasswordChange;

@@ -3,10 +3,9 @@ import './App.css';
 import Header from './Header';
 import Login from './components/auth/Login'
 import Profile from './components/auth/Profile'
-import Registration from './components/auth/Registration'
-import {BrowserRouter as Router, Route, Switch, Link, Redirect} from "react-router-dom";
-import {Teams} from "./components/teams/Teams";
-import Team from "./components/teams/Team";
+import PasswordChange from './components/auth/PasswordChange'
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+
 
 
 class App extends Component{
@@ -32,10 +31,8 @@ class App extends Component{
                 <Switch>
                     <Route path="/profile"> <Profile authChange={this.authChange} auth={this.state.auth}/></Route>
                     <Route path="/login"> <Login authChange={this.authChange} auth={this.state.auth}/></Route>
-                    <Route path="/change-password"> <Registration authChange={this.authChange} auth={this.state.auth}/></Route>
-                    <Route exact path="/teams"> <Teams authChange={this.authChange} auth={this.state.auth}/></Route>
-                    <Route exact path="/team/:id"
-                           render={({match}) => (<Team authChange={this.authChange} auth={this.state.auth}  id={match.params.id}/>)}/>
+                    <Route path="/change-password"> <PasswordChange authChange={this.authChange} auth={this.state.auth}/></Route>
+
                 </Switch>
                 {/*{!this.state.auth && <Redirect to="/login" push />}*/}
                 {/*    Authorized - {this.state.auth.toString()}*/}
