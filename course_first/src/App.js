@@ -5,6 +5,7 @@ import Login from './components/auth/Login'
 import Profile from './components/auth/Profile'
 import PasswordChange from './components/auth/PasswordChange'
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import Search from "./components/Search";
 
 
 
@@ -32,6 +33,7 @@ class App extends Component{
                     <Route path="/profile"> <Profile authChange={this.authChange} auth={this.state.auth}/></Route>
                     <Route path="/login"> <Login authChange={this.authChange} auth={this.state.auth}/></Route>
                     <Route path="/change-password"> <PasswordChange authChange={this.authChange} auth={this.state.auth}/></Route>
+                    <Route path="/"> <Search authChange={this.authChange} auth={this.state.auth}/></Route>
 
                 </Switch>
                 {/*{!this.state.auth && <Redirect to="/login" push />}*/}
