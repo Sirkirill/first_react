@@ -43,7 +43,7 @@ class Header extends Component{
 
                 <div className="inner d-flex justify-content-between">
 
-                    <h3 className="masthead-brand">FACEIN</h3>
+                    <h3 className="masthead-brand">FaceTracker</h3>
                         <nav className="nav nav-masthead justify-content-center">
                             <div className="nav-link" onClick={this.changeLanguage}>{strings.lang}</div>
                             {!this.props.auth ?

@@ -73,7 +73,7 @@ class Login extends Component{
                     {this.state.validate_message && <div>{this.state.validate_message}</div>}
                     <button className="btn btn-lg btn-primary btn-block mt-3" type="submit">{strings.login}</button>
 
-                    <p className="mt-5 mb-3 text-muted">©FaceIn 2020</p>
+                    <p className="mt-5 mb-3 text-muted">©FaceTracker 2021</p>
                 </form>
             </div>
         );
